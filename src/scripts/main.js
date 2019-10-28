@@ -114,44 +114,44 @@ const businesses = [
 ];
 
 const outEl = document.querySelector("#output")
-// outEl.innerHTML = "<h1>Active Businesses</h1>"
+outEl.innerHTML = "<h1>Active Businesses</h1>"
 
 //MAP
 
-outEl.innerHTML += "<h1>Purchasing Agent Contact Info</h1>";
+// outEl.innerHTML += "<h1>Purchasing Agent Contact Info</h1>";
 
 /*
     Using map(), you extract the purchasing agent object
     from each business and store it in a new array
 */
-const agents = businesses.map(business => {
-    return business.purchasingAgent
+// const agents = businesses.map(business => {
+//     return business.purchasingAgent
 
-})
+// })
 
-console.table(agents)
+// console.table(agents)
 
 // agents.forEach(agent => {
 //   outEl.innerHTML += `<h2>${agent.nameFirst} ${agent.nameLast}</h2>`;
 //   outEl.innerHTML += "<hr/>";
 // });
 
-const agentsWithCompanyNameAndPhone = businesses.map(business => {
-    return {
-        fullName: `${business.purchasingAgent.nameFirst} ${business.purchasingAgent.nameLast}`,
-        company: `${business.companyName}`,
-        phoneNumber: `${business.phoneWork}`
-}
-});
+// const agentsWithCompanyNameAndPhone = businesses.map(business => {
+//     return {
+//         fullName: `${business.purchasingAgent.nameFirst} ${business.purchasingAgent.nameLast}`,
+//         company: `${business.companyName}`,
+//         phoneNumber: `${business.phoneWork}`
+// }
+// });
 
-console.log(agentsWithCompanyNameAndPhone);
+// console.log(agentsWithCompanyNameAndPhone);
 
-agentsWithCompanyNameAndPhone.forEach(agent => {
-    outEl.innerHTML += `<h2>${agent.fullName}</h2>`
-    outEl.innerHTML += `<p>Company: ${agent.company}</p>`
-    outEl.innerHTML += `<p>Phone: ${agent.phoneNumber}</p>`
-    outEl.innerHTML +="<hr/>"
-})
+// agentsWithCompanyNameAndPhone.forEach(agent => {
+//     outEl.innerHTML += `<h2>${agent.fullName}</h2>`
+//     outEl.innerHTML += `<p>Company: ${agent.company}</p>`
+//     outEl.innerHTML += `<p>Phone: ${agent.phoneNumber}</p>`
+//     outEl.innerHTML +="<hr/>"
+// })
 // const newYorkBusinesses = businesses.filter(business => {
 //     //   let inNewYork = false;
 
