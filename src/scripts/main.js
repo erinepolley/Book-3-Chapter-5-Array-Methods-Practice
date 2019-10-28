@@ -114,61 +114,96 @@ const businesses = [
 ];
 
 const outEl = document.querySelector("#output")
-outEl.innerHTML = "<h1>Active Businesses</h1>"
+// outEl.innerHTML = "<h1>Active Businesses</h1>"
 
+//MAP
 
-const newYorkBusinesses = businesses.filter(business => {
-    //   let inNewYork = false;
+outEl.innerHTML += "<h1>Purchasing Agent Contact Info</h1>";
 
-    if (business.addressStateCode === "NY") {
-        //inNewYork = true  
-        return business
-    }
+/*
+    Using map(), you extract the purchasing agent object
+    from each business and store it in a new array
+*/
+const agents = businesses.map(business => {
+    return business.purchasingAgent
 
-    //   return inNewYork
+})
+
+console.table(agents)
+
+// agents.forEach(agent => {
+//   outEl.innerHTML += `<h2>${agent.nameFirst} ${agent.nameLast}</h2>`;
+//   outEl.innerHTML += "<hr/>";
+// });
+
+const agentsWithCompanyNameAndPhone = businesses.map(business => {
+    return {
+        fullName: `${business.purchasingAgent.nameFirst} ${business.purchasingAgent.nameLast}`,
+        company: `${business.companyName}`,
+        phoneNumber: `${business.phoneWork}`
+}
 });
 
-console.log(newYorkBusinesses);
+console.log(agentsWithCompanyNameAndPhone);
+
+agentsWithCompanyNameAndPhone.forEach(agent => {
+    outEl.innerHTML += `<h2>${agent.fullName}</h2>`
+    outEl.innerHTML += `<p>Company: ${agent.company}</p>`
+    outEl.innerHTML += `<p>Phone: ${agent.phoneNumber}</p>`
+    outEl.innerHTML +="<hr/>"
+})
+// const newYorkBusinesses = businesses.filter(business => {
+//     //   let inNewYork = false;
+
+//     if (business.addressStateCode === "NY") {
+//         //inNewYork = true  
+//         return business
+//     }
+
+//     //   return inNewYork
+// });
+
+// console.log(newYorkBusinesses);
 
 
-const manufacturingBusinesses = businesses.filter(business => {
-    if (business.companyIndustry === "Manufacturing") {
-        return business
-    }
-});
+// const manufacturingBusinesses = businesses.filter(business => {
+//     if (business.companyIndustry === "Manufacturing") {
+//         return business
+//     }
+// });
 
-console.log(manufacturingBusinesses);
+// console.log(manufacturingBusinesses);
 
-newYorkBusinesses.forEach(business => {
-    const zipcodeKey = "addressZipCode"
-    // outEl.innerHTML += `<h2>New York Businesses</h2>`
-    outEl.innerHTML += `
-        <h2>${business.companyName}</h2>
-        <section>
-            ${business.addressFullStreet}
-        </section>
-        <section>
-            ${business.addressCity}, ${business["addressStateCode"]}, ${business[zipcodeKey]}
-        </section>
-    `
-    outEl.innerHTML += "<hr>"
-});
+// newYorkBusinesses.forEach(business => {
+//     const zipcodeKey = "addressZipCode"
+//     // outEl.innerHTML += `<h2>New York Businesses</h2>`
+//     outEl.innerHTML += `
+//         <h2>${business.companyName}</h2>
+//         <section>
+//             ${business.addressFullStreet}
+//         </section>
+//         <section>
+//             ${business.addressCity}, ${business["addressStateCode"]}, ${business[zipcodeKey]}
+//         </section>
+//     `
+//     outEl.innerHTML += "<hr>"
+// });
 
 
 
-manufacturingBusinesses.forEach(business => {
-    const zipcodeKey = "addressZipCode"
-    //   outEl.innerHTML += `<h2>Manufacturing Businesses</h2>`
-    outEl.innerHTML += `
-              <h2>${business.companyName}</h2>
-              <section>
-                  ${business.addressFullStreet}
-              </section>
-              <section>
-                  ${business.addressCity}, ${business["addressStateCode"]}, ${business[zipcodeKey]}
-              </section>
-          `
-    outEl.innerHTML += "<hr>"
-});
+// manufacturingBusinesses.forEach(business => {
+//     const zipcodeKey = "addressZipCode"
+//     //   outEl.innerHTML += `<h2>Manufacturing Businesses</h2>`
+//     outEl.innerHTML += `
+//               <h2>${business.companyName}</h2>
+//               <section>
+//                   ${business.addressFullStreet}
+//               </section>
+//               <section>
+//                   ${business.addressCity}, ${business["addressStateCode"]}, ${business[zipcodeKey]}
+//               </section>
+//           `
+//     outEl.innerHTML += "<hr>"
+// });
 
 
