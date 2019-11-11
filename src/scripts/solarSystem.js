@@ -4,10 +4,12 @@ const planets = ["mercury", "venus", "earth", "mars", "jupiter", "saturn", "uran
     Use the forEach method to add the name of each planet
     to a section element in your HTML with an id of "planets".
     Use string templates to construct the DOM elements.
-*/
+// */
 const planetList = document.querySelector("#planets")
 let planetString = ""
 planets.forEach(planet =>{
+    // planet.charAt(0).toUpperCase();
+    console.log(planet)
     planetString += ` ${planet}`
 })
 console.log(planetString)
@@ -23,6 +25,12 @@ const planetEl = document.getElementById("planets")
 
     https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase
 */
+let capPlanets
+planets.forEach(planet => {
+    capPlanets += planet.charAt(0).toUpperCase();
+})
+console.log(capPlanets)
+
 
 
 /*
