@@ -8,7 +8,7 @@ const planets = ["mercury", "venus", "earth", "mars", "jupiter", "saturn", "uran
 const planetList = document.querySelector("#planets")
 let planetString = ""
 planets.forEach(planet =>{
-    // planet.charAt(0).toUpperCase();
+    planet.toUpperCase();
     console.log(planet)
     planetString += ` ${planet}`
 })
@@ -25,11 +25,11 @@ const planetEl = document.getElementById("planets")
 
     https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase
 */
-let capPlanets
-planets.forEach(planet => {
-    capPlanets += planet.charAt(0).toUpperCase();
-})
-console.log(capPlanets)
+let capPlanets= planets.map(planet => planet.charAt(0).toUpperCase() + planet.slice(1))
+// planets.forEach(planet => {
+//     capPlanets += planet.toUpperCase();
+// })
+console.log("PLANETS CAPITAL LETTERS", capPlanets)
 
 
 
