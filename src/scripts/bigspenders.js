@@ -1,5 +1,3 @@
-console.log("Hang in there, this will percolate in good time.")
-
 const businesses = [
     {
         purchasingAgent: { nameLast: "Kirlin", nameFirst: "Kristy" },
@@ -111,99 +109,28 @@ const businesses = [
         addressFullStreet: "7157 Hudson Street Ford",
         addressCity: "Watrous"
     }
-];
+]
 
-const outEl = document.querySelector("#output")
-outEl.innerHTML = "<h1>Active Businesses</h1>"
+const bigSpenders = businesses.filter(business => {
+    for(let i = 0; i < business.orders.length; i++)
+    if(business.orders[i] >= 9000) {
+        return true
+    }
+})
+console.log(bigSpenders)
+//iterate over each object in businesses array, finding orders
+//reduce orders 
+//conditional statement asking if orders are greater than 9000
+//if so, add to empty string variable
+//render variable to DOM
 
-//MAP
-
-// outEl.innerHTML += "<h1>Purchasing Agent Contact Info</h1>";
-
-/*
-    Using map(), you extract the purchasing agent object
-    from each business and store it in a new array
-*/
-// const agents = businesses.map(business => {
-//     return business.purchasingAgent
-
-// })
-
-// console.table(agents)
-
-// agents.forEach(agent => {
-//   outEl.innerHTML += `<h2>${agent.nameFirst} ${agent.nameLast}</h2>`;
-//   outEl.innerHTML += "<hr/>";
-// });
-
-// const agentsWithCompanyNameAndPhone = businesses.map(business => {
-//     return {
-//         fullName: `${business.purchasingAgent.nameFirst} ${business.purchasingAgent.nameLast}`,
-//         company: `${business.companyName}`,
-//         phoneNumber: `${business.phoneWork}`
-// }
-// });
-
-// console.log(agentsWithCompanyNameAndPhone);
-
-// agentsWithCompanyNameAndPhone.forEach(agent => {
-//     outEl.innerHTML += `<h2>${agent.fullName}</h2>`
-//     outEl.innerHTML += `<p>Company: ${agent.company}</p>`
-//     outEl.innerHTML += `<p>Phone: ${agent.phoneNumber}</p>`
-//     outEl.innerHTML +="<hr/>"
-// })
-// const newYorkBusinesses = businesses.filter(business => {
-//     //   let inNewYork = false;
-
-//     if (business.addressStateCode === "NY") {
-//         //inNewYork = true  
-//         return business
+//This is code that I wrote when I thought that you had to add all the orders in the array.
+// businesses.forEach(business => {
+//    const orderTotal = business.orders.reduce((orderTotal, currentNumber) => orderTotal += currentNumber, 0)
+//     console.log(orderTotal)
+//     if(orderTotal > 9000) {
+        
 //     }
-
-//     //   return inNewYork
-// });
-
-// console.log(newYorkBusinesses);
-
-
-// const manufacturingBusinesses = businesses.filter(business => {
-//     if (business.companyIndustry === "Manufacturing") {
-//         return business
-//     }
-// });
-
-// console.log(manufacturingBusinesses);
-
-// newYorkBusinesses.forEach(business => {
-//     const zipcodeKey = "addressZipCode"
-//     // outEl.innerHTML += `<h2>New York Businesses</h2>`
-//     outEl.innerHTML += `
-//         <h2>${business.companyName}</h2>
-//         <section>
-//             ${business.addressFullStreet}
-//         </section>
-//         <section>
-//             ${business.addressCity}, ${business["addressStateCode"]}, ${business[zipcodeKey]}
-//         </section>
-//     `
-//     outEl.innerHTML += "<hr>"
-// });
-
-
-
-// manufacturingBusinesses.forEach(business => {
-//     const zipcodeKey = "addressZipCode"
-//     //   outEl.innerHTML += `<h2>Manufacturing Businesses</h2>`
-//     outEl.innerHTML += `
-//               <h2>${business.companyName}</h2>
-//               <section>
-//                   ${business.addressFullStreet}
-//               </section>
-//               <section>
-//                   ${business.addressCity}, ${business["addressStateCode"]}, ${business[zipcodeKey]}
-//               </section>
-//           `
-//     outEl.innerHTML += "<hr>"
-// });
+// })
 
 
